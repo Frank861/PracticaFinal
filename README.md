@@ -86,11 +86,12 @@ https://youtu.be/Smkw2vBizIY  **( este es un ejemplo, pueden buscar otro ejemplo
 | `/` | GET | Pagina de Inicio |
 | `/servicio` | GET | Pagina de Servicios |
 | `/serviciodeAutos` | GET | Pagina de Servicios |
-| `/serviciodeAutos` | GET | Pagina de Servicios |
+| `/serviciodeRestaurante` | GET | Pagina de Servicios |
 | `/nosotros` | GET | Pagina acerca de Nosotros |
 | `/contacto` | GET | Pagina de contactame |
 | `/Video` | GET | Pagina de Video |
 | `/404` | GET | Pagina de 404 |
+| `/GaleriadeFotos` | GET | Pagina de Galeria |
 
 ## Licensia
 

@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    min-height: 100vh;
+    background-color: linear-gradient(125deg,#af2020);
+}
+
+.container{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color:#af2020;
+}
+
+.container h1{
+    font-size: 160px;
+    color: black;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 20px;
+}
+
+.container a{
+    text-decoration: none;
+    background: #af2020;
+    color: rgb(0, 0, 0);
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.container a:hover{
+    background: #bd00008e;
+}

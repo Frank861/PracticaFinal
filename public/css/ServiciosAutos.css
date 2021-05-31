@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*{
+    font-family: Montserrat, sans-serif;    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    background-color: #eee;
+    font-family: sans-serif;
+}
+
+/*Header*/
+header li:hover{
+    color: #99000056;
+    transition: all .3s;
+}
+
+header ul li a:hover{
+    color: rgba(194, 248, 0, 0.945);
+    transition: all .5s;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 10px 80px;
+    background: #990000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+header .Botones{
+    position: relative;
+    display: flex;
+}
+
+header .Botones li{
+    list-style: none;
+    margin-left: 30px;
+}
+
+header ul li>li{
+    float: left;
+}
+
+header .Botones li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+}
+
+.Logo{
+    width: 150px;
+}
+
+.submenu{
+    position: absolute;
+    background: #990000;
+    display: none;
+    transition: all .3s;
+}
+
+header ul li .submenu.sticky{
+    padding: 10px 80px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+header li:hover .submenu{
+    display: block;
+}
+
+header li:hover{
+    color: #99000056;
+    transition: all .3s;
+}
+
+header ul li a:hover{
+    color: rgba(194, 248, 0, 0.945);
+    transition: all .5s;
+}
+
+.submenu li a{
+    display: block;
+    width: 180%;
+    padding: 5px;
+    color: #fff;
+}
+
+/*Autos*/
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 1000px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    grid-gap: 30px;
+}
+
+.item{
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.095);
+
+    transition: all 300ms;
+}
+
+.item:hover{
+    transform: scale(1.05);
+}
+
+.item::after{
+    content: "";
+    background-color: rgba(179, 229, 252, .1);
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transition: all 300ms;
+    opacity: 0;
+}
+
+.item:hover::after{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.item-text{
+    padding: 1em;
+}
+
+.item-img{
+    height: 195px;
+    width: 313px;
+    display: block;
+}
+
+.btn{
+    text-align: center;
+}
+
+.btn a{
+    text-decoration: none;
+    text-align: center;
+    height: auto;
+    position: relative;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(
+-180deg
+, rgb(246, 95, 3) 0%, rgb(214, 0, 0) 96%);
+    background-position: initial;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+
+@media screen and (min-width: 590px){
+
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 960px){
+
+    .container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*Footer*/
+footer{
+    word-break: break-word;
+    width: 100%;
+    padding: 50px 0px;
+    background-color: rgb(8, 8, 8);
+    justify-content: space-evenly;
+
+}
+
+.Footersmall{
+    font-size: 12px;
+    color: #fff;
+    padding-left: 50px;
+    overflow: hidden;
+    position: relative;
+    white-space: pre-line;
+}
+
+.Enlaces{
+    display: flex;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+
+
+.Footer2{
+    display: flex;
+}
