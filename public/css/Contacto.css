@@ -131,7 +131,7 @@ ul {
 }
 
 .contact-form {
-    background: #ffffff;
+    background: #fdfdfd;
     border-radius: 10px;
 }
 
@@ -161,7 +161,7 @@ ul {
     border: none;
     background: none;
     outline: 0;
-    color: #fff;
+    color: rgb(0, 0, 0);
     border-bottom: 1px solid #d63031;
 }
 

@@ -1,61 +1,90 @@
-const express = require('express');
-const hbs = requiere('express-handlebars');
-const app = express();
-const path = require('path');
- 
+const express =require('express');
+const hbs = require('express-handlebars');
+const path = require ('path');
+const nodemailer = require ('nodemailer'); 
+require('dotenv').config();
 const PORT = 4000;
+const app = express();
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: process.env.MAIL_USER, // generated ethereal user
+      pass: process.env.MAIL_PASS, // generated ethereal password
+    },
+  });
+  transporter.verify().then(()=>{
+    console.log("Listo para enviar correo!");
+});
 
 app.set("view engine", ".hbs")
 
-app.set('views'.path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.use((express.static (path.join(__dirname, "public"))));
 
 app.engine(
     '.hbs',
 hbs({
     defaultlayout: "main",
-    layoutDir: path.join(app.get('views'), 'layout'),
+    layoutsDir: path.join(app.get('views'), 'layout'),
     partialsDir: path.join(app.get('views'), 'partial'),
     extname: '.hbs'
 }));
 
 app.get('/', (req, res)=>{
-    res.send('Inicio');
+    res.render('Index', {Ruta:'css/style.css'});
 })
 
-app.get('/nosotros', (req, res)=>{
-    res.send('Nosotros');
+app.get('/Nosotros', (req, res)=>{
+    res.render('Nosotros', {Ruta:'css/Nosotros.css'});
 })
 
-app.get('/Servicio', (req, res)=>{
-    res.send('Servicios');
+app.get('/Servicios', (req, res)=>{
+    res.render('Servicios', {Ruta:'css/Servicios.css'});
 })
 
-app.get('/ServiciodeAutos', (req, res)=>{
-    res.send('Servicios de Autos');
+app.get('/ServiciosAutos', (req, res)=>{
+    res.render('ServiciosAutos', {Ruta:'css/ServiciosAutos.css'});
 })
 
-app.get('/ServiciodeRestaurante', (req, res)=>{
-    res.send('Servicios de Restaurante');
+app.get('/ServicioRestaurante', (req, res)=>{
+    res.render('ServiciosRestaurante', {Ruta:'css/ServiciosRestaurante.css'});
 })
 
-app.get('/GaleriadeFotos', (req, res)=>{
-    res.send('Galeria');
+app.get('/Galeriadefotos', (req, res)=>{
+    res.render('Galeriadefotos', {Ruta:'css/Galeriadefotos.css'});
 })
 
-app.get('/contacto', (req, res)=>{
-    res.send('Contacto');
+app.get('/Contacto', (req, res)=>{
+    res.render('Contacto', {Ruta:'css/Contacto.css'});
 })
 
 app.get('/Video', (req, res)=>{
-    res.send('Pagina de Video');
+    res.render('Video', {Ruta:'css/Video.css'});
 })
 
 app.use((_req, res) =>{
-    res.send('404')
+    res.render('Personas', {Ruta:'css/Personas.css'})
 })
 
 app.listen(PORT, ()=>{
     console.log(`Server on http://localhost:${PORT}`);
     console.log(app.get('views'));
 });
+
+//Formulario
+app. post ('/Contacto', async(req, res)=>{
+    // send mail with defined transport object
+   await transporter.sendMail({
+   from: process.env.MAIL_USER, // sender address
+   to:process.env.MAIL_USER, // list of receivers
+   subject: `${req.body.nombre} Solicita su atencion sobre ${req.body.Asunto}`, // Subject line
+   html: `<h1>Nombre:${req.body.nombre}</h1>
+       <h1>Correo:${req.body.email}</h1>
+       <h1>Telefono:${req.body.telefono}</h1>
+       <h1>Solicita la siguiente información:</h1>
+   <h1>${req.body.mensaje}</h1>` // html body
+ });
+   res.redirect('/');
+})

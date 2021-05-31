@@ -6,37 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Imagenes/LOGO4.png" type="image/x-icon">
     <title>main</title>
+    <link rel="stylesheet" href={{Ruta}}>
+     <script src="JS/app.js"></script>
 </head>
 <body>
-        <header class="Headercontenido">
-        <img src="Imagenes/LOGO4.png" alt="" class="Logo">
-        <ul class="Botones">
-            <li><a href="Index.html">Inicio</a></li>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-            <li><a href="Servicios.html">Servicios</a></li>
-            <li><a href="Galeriadefotos.html">Galeria de Fotos</a></li>
-            <li><a href="Contacto.html">Contactos</a></li>
-            <li><a href="">Mas</a>
-                <ul class="submenu">
-                    <li><a href="Video.html">Videos</a></li>
-                    <li><a href="Personas.html">Personas</a></li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-    <footer class="Footercontenido">
-    <div class="Footer2">
-        <div class="Footersmall">
-            <small>Deluxury  Place © 2020- 2021</small>
-        </div>
-        <div class="Enlaces">
-            <a href="https://www.facebook.com/" target="_blank"><img src="Imagenes/Facebook.ico" alt="" ></a>
-            <a href="https://twitter.com/" target="_blank"><img src="Imagenes/Twitter.ico" alt=""></a>
-            <a href="https://es.linkedin.com/" target="_blank"><img src="Imagenes/Linkin.ico" alt=""></a>
-            <a href="https://www.instagram.com/" target="_blank"><img src="Imagenes/Instagram.ico" alt=""></a>
-        </div>
-    </div> 
-    </footer>
-
-</body>
+    {{>header}}
+    {{{body}}}
+    {{>footer}}
+</body> 
 </html>
