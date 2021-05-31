@@ -3,7 +3,7 @@ const hbs = require('express-handlebars');
 const path = require ('path');
 const nodemailer = require ('nodemailer'); 
 require('dotenv').config();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json())
