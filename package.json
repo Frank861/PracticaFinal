@@ -2,10 +2,10 @@
   "name": "practicafinal",
   "version": "1.0.0",
   "description": ">### Especificaciones de Macdalys\r **ETAPAS:**<br>\r **1.** Diseñar Wireframe / **Mockup**<br>\r **2.** Diseñar estructura Html<br>\r **3.** Crear carpetas y subcarpetas necesarias.<br>\r **4.** Crear carpeta de imágenes<br>\r **5.** Aplicar estilos css<br>\r **6.** Crear anuncio o animación en anímate.<br> \r **7.** **Insertar mínimo 5 comportamientos  de JavaScript en la página** <br>\r <br>\r >#### **El diseño de este trabajo debe contener lo siguiente:**\r <br>\r   **8.** Diseñar cinco (5) páginas (SECCIONES).<br>\r   **La principal,**<br>\r   - Una **segunda** página (misión, visión y los valores de tu empresa.)\r   - Una **tercera** página ( Producto, servicio, etc) \r - Una **cuarta** Página **(para el formulario de MAÑÓN)**\r -  Una **quinta** página  (**para el contacto**) **Incluir** : mapa, teléfonos, (**correo** enviar formulario de contacto), ETC.",
-  "main": "Index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
