@@ -5,6 +5,12 @@ const nodemailer = require ('nodemailer');
 require('dotenv').config();
 const PORT = 4000;
 const app = express();
+
+app.use(express.json())
+app.use(express.urlencoded({
+    extended: false
+}));
+//Nodemailer
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -17,6 +23,7 @@ const transporter = nodemailer.createTransport({
   transporter.verify().then(()=>{
     console.log("Listo para enviar correo!");
 });
+
 
 app.set("view engine", ".hbs")
 
@@ -60,6 +67,22 @@ app.get('/Contacto', (req, res)=>{
     res.render('Contacto', {Ruta:'css/Contacto.css'});
 })
 
+//Formulario
+app. post ('/Contacto', async(req, res)=>{
+    // send mail with defined transport object
+   await transporter.sendMail({
+   from: process.env.MAIL_USER, // sender address
+   to:process.env.MAIL_USER, // list of receivers
+   subject: `${req.body.fullname} requiere su atención sobre: ${req.body.Asunto}`, // Subject line
+   html: `<h1>Nombre:${req.body.fullname}</h1>
+       <h1>Correo:${req.body.email}</h1>
+       <h1>Telefono:${req.body.phone}</h1>
+       <h1>Solicita la siguiente información:</h1>
+   <h1>${req.body.message}</h1>` // html body
+ });
+   res.redirect('/');
+})
+
 app.get('/Video', (req, res)=>{
     res.render('Video', {Ruta:'css/Video.css'});
 })
@@ -72,19 +95,3 @@ app.listen(PORT, ()=>{
     console.log(`Server on http://localhost:${PORT}`);
     console.log(app.get('views'));
 });
-
-//Formulario
-app. post ('/Contacto', async(req, res)=>{
-    // send mail with defined transport object
-   await transporter.sendMail({
-   from: process.env.MAIL_USER, // sender address
-   to:process.env.MAIL_USER, // list of receivers
-   subject: `${req.body.nombre} Solicita su atencion sobre ${req.body.Asunto}`, // Subject line
-   html: `<h1>Nombre:${req.body.nombre}</h1>
-       <h1>Correo:${req.body.email}</h1>
-       <h1>Telefono:${req.body.telefono}</h1>
-       <h1>Solicita la siguiente información:</h1>
-   <h1>${req.body.mensaje}</h1>` // html body
- });
-   res.redirect('/');
-})
